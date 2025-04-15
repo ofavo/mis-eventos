@@ -20,7 +20,7 @@ El proyecto está dividido en tres componentes principales:
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/mis-eventos.git
+git clone https://github.com/ofavo/mis-eventos.git
 cd mis-eventos
 ```
 
