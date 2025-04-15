@@ -16,9 +16,8 @@ ENV POSTGRES_DB=postgres
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar y dar permisos al script de espera
-COPY ./backend-eventos/wait-for-db.sh /app/wait-for-db.sh
-RUN chmod +x /app/wait-for-db.sh
+# Asegurar que el script tiene los line endings correctos y permisos de ejecución
+RUN sed -i 's/\r$//' /app/wait-for-db.sh && chmod +x /app/wait-for-db.sh
 
 # Usar el script de espera para ejecutar solo uvicorn
 CMD ["./wait-for-db.sh", "db", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
